@@ -1,13 +1,21 @@
-﻿using System;
+﻿using SchoolsAdmin.Shared.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WebAPI.Shared.Entities;
 
-namespace WebAPI.Models.Entities
+namespace SchoolsAdmin.Domain.Models.Entities
 {
     public class Classroom : Entity
     {
+
+        public Classroom(string name) : base(name)
+        {            
+            CreateDate = DateTime.Now;
+            LastUpdateDate = DateTime.Now;
+            Active = true;
+        }
+
         public Classroom(string name, School school) : base(name)
         {            
             School = school;
@@ -16,7 +24,7 @@ namespace WebAPI.Models.Entities
             Active = true;
         }
 
-        public int IdSchool { get; private set; }
+        public Guid SchoolId { get; private set; }
         public virtual School School { get; private set; }
         public DateTime CreateDate { get; private set; }
         public DateTime LastUpdateDate { get; private set; }
