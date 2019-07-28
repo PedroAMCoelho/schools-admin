@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using SchoolsAdmin.Domain.Models.Entities;
+using SchoolsAdmin.Domain.Entities.Models;
 
 namespace SchoolsAdmin.Domain.Migrations
 {
@@ -19,18 +19,20 @@ namespace SchoolsAdmin.Domain.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("SchoolsAdmin.Domain.Models.Entities.Classroom", b =>
+            modelBuilder.Entity("SchoolsAdmin.Domain.Entities.Models.Classroom", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<bool>("Active");
-
                     b.Property<DateTime>("CreateDate");
+
+                    b.Property<bool>("IsActive");
 
                     b.Property<DateTime>("LastUpdateDate");
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(60);
 
                     b.Property<Guid>("SchoolId");
 
@@ -41,21 +43,23 @@ namespace SchoolsAdmin.Domain.Migrations
                     b.ToTable("Classrooms");
                 });
 
-            modelBuilder.Entity("SchoolsAdmin.Domain.Models.Entities.School", b =>
+            modelBuilder.Entity("SchoolsAdmin.Domain.Entities.Models.School", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(60);
 
                     b.HasKey("Id");
 
                     b.ToTable("Schools");
                 });
 
-            modelBuilder.Entity("SchoolsAdmin.Domain.Models.Entities.Classroom", b =>
+            modelBuilder.Entity("SchoolsAdmin.Domain.Entities.Models.Classroom", b =>
                 {
-                    b.HasOne("SchoolsAdmin.Domain.Models.Entities.School", "School")
+                    b.HasOne("SchoolsAdmin.Domain.Entities.Models.School", "School")
                         .WithMany("Classrooms")
                         .HasForeignKey("SchoolId")
                         .OnDelete(DeleteBehavior.Cascade);

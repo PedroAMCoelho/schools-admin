@@ -1,10 +1,11 @@
 ﻿using SchoolsAdmin.Shared.Entities;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SchoolsAdmin.Domain.Models.Entities
+namespace SchoolsAdmin.Domain.Entities.Models
 {
     public class Classroom : Entity
     {
@@ -13,7 +14,7 @@ namespace SchoolsAdmin.Domain.Models.Entities
         {            
             CreateDate = DateTime.Now;
             LastUpdateDate = DateTime.Now;
-            Active = true;
+            IsActive = true;
         }
 
         public Classroom(string name, School school) : base(name)
@@ -21,24 +22,32 @@ namespace SchoolsAdmin.Domain.Models.Entities
             School = school;
             CreateDate = DateTime.Now;
             LastUpdateDate = DateTime.Now;
-            Active = true;
+            IsActive = true;
         }
 
+        [Required(ErrorMessage = "School Id is required")]
         public Guid SchoolId { get; private set; }
+
         public virtual School School { get; private set; }
+
+        [Required(ErrorMessage = "Create Date is required")]
         public DateTime CreateDate { get; private set; }
+
+        [Required(ErrorMessage = "Last Update Date is required")]
         public DateTime LastUpdateDate { get; private set; }
-        public bool Active { get; private set; }
+
+        [Required(ErrorMessage = "IsActive is required")]
+        public bool IsActive { get; private set; }
 
         public void Activate()
         {
-            Active = true;
+            IsActive = true;
             LastUpdateDate = DateTime.Now;
         }
 
         public void Inactivate()
         {
-            Active = false;
+            IsActive = false;
             LastUpdateDate = DateTime.Now;
         }
     }

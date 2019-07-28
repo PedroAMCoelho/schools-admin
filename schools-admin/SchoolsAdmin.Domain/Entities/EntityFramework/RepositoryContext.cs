@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SchoolsAdmin.Domain.Models.Entities
+namespace SchoolsAdmin.Domain.Entities.Models
 {
     public class RepositoryContext : DbContext
     {

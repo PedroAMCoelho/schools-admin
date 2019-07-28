@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using SchoolsAdmin.Domain.Models.Entities;
+using SchoolsAdmin.Domain.Entities.Models;
 
 namespace SchoolsAdmin.Domain.Migrations
 {
