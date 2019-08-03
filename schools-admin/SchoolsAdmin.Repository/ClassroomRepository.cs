@@ -13,5 +13,12 @@ namespace SchoolsAdmin.Repository
             : base(repositoryContext)
         {
         }
+
+        public IEnumerable<Classroom> GetAllClassrooms()
+        {
+            return FindAll()
+                .OrderBy(cr => cr.Name)
+                .ToList();
+        }
     }
 }

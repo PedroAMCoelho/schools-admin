@@ -8,6 +8,6 @@ namespace SchoolsAdmin.Contracts
 {
     public interface IClassroomRepository : IRepositoryBase<Classroom>
     {
-
+        IEnumerable<Classroom> GetAllClassrooms();
     }
 }
