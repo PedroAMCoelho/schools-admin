@@ -10,5 +10,6 @@ namespace SchoolsAdmin.Contracts
     {
         IEnumerable<Classroom> GetAllClassrooms();
         Classroom GetClassroomById(Guid classroomId);
+        IEnumerable<Classroom> ClassroomsBySchool(Guid schoolId);
     }
 }

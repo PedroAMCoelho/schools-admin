@@ -1,5 +1,6 @@
 ﻿using SchoolsAdmin.Contracts;
 using SchoolsAdmin.Domain.DTO;
+using SchoolsAdmin.Domain.Entities.Extensions;
 using SchoolsAdmin.Domain.Entities.Models;
 using System;
 using System.Collections.Generic;
@@ -25,7 +26,7 @@ namespace SchoolsAdmin.Repository
         public School GetSchoolById(Guid schoolId)
         {
             return FindByCondition(school => school.Id.Equals(schoolId))
-                .DefaultIfEmpty(new School(GetSchoolById(schoolId).Name))
+                .DefaultIfEmpty(new School("A definir"))
                 .FirstOrDefault();
         }
 
@@ -37,5 +38,18 @@ namespace SchoolsAdmin.Repository
                     .Where(sc => sc.SchoolId == schoolId)
             };
         }
+
+        //public void CreateSchool(School school)
+        //{
+        //    school.Id = Guid.NewGuid();
+        //    Create(school);
+        //}
+
+        public void UpdateSchool(School dbSchool, School school)
+        {
+            dbSchool.Map(school);
+            Update(dbSchool);
+        }
+
     }
 }

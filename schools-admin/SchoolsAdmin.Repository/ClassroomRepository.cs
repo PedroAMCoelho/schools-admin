@@ -24,8 +24,13 @@ namespace SchoolsAdmin.Repository
         public Classroom GetClassroomById(Guid classroomId)
         {
             return FindByCondition(classroom => classroom.Id.Equals(classroomId))
-                    .DefaultIfEmpty(new Classroom())
+                    .DefaultIfEmpty(new Classroom(null))
                     .FirstOrDefault();
+        }
+
+        public IEnumerable<Classroom> ClassroomsBySchool(Guid schoolId)
+        {
+            return FindByCondition(cr => cr.SchoolId.Equals(schoolId)).ToList();
         }
     }
 }

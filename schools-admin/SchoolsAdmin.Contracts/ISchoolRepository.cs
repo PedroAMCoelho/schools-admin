@@ -12,5 +12,7 @@ namespace SchoolsAdmin.Contracts
         IEnumerable<School> GetAllSchools();
         School GetSchoolById(Guid schoolId);
         SchoolDTO GetSchoolWithDetails(Guid schoolId);
+        //void CreateSchool(School school);
+        void UpdateSchool(School dbSchool, School school);
     }
 }
