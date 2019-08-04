@@ -14,10 +14,13 @@ namespace SchoolsAdmin.Shared.Entities
             Name = name;
         }
 
-        public Guid Id { get; private set; }
+        public Guid Id { get; set; }
 
         [Required(ErrorMessage = "Name is required")]
         [StringLength(60, ErrorMessage = "Name can't be longer than 50 characters")]
-        public string Name { get; private set; }
+        public string Name { get; set; }
+
+
+        
     }
 }
