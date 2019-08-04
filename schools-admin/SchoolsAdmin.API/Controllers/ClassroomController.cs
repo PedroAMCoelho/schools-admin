@@ -34,7 +34,29 @@ namespace SchoolsAdmin.API.Controllers
             }
             catch (Exception ex)
             {                
-                return StatusCode(500, "Internal server error - " + ex);
+                return StatusCode(500, "Internal server error - " + ex.Message);
+            }
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetClassroomById(Guid id)
+        {
+            try
+            {
+                var classroom = _repository.Classroom.GetClassroomById(id);
+
+                if (classroom.Id.Equals(Guid.Empty)) //or if(classroom.IsEmptyObject()) 
+                {                    
+                    return NotFound();
+                }
+                else
+                {                    
+                    return Ok(classroom);
+                }
+            }
+            catch (Exception ex)
+            {                
+                return StatusCode(500, "Internal server error - " + ex.Message);
             }
         }
     }

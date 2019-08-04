@@ -9,6 +9,7 @@ namespace SchoolsAdmin.Domain.Entities.Models
 {
     public class Classroom : Entity
     {
+        
 
         public Classroom(string name) : base(name)
         {            

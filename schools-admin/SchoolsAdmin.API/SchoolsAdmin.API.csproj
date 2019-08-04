@@ -14,7 +14,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SchoolsAdmin.Contracts\SchoolsAdmin.Contracts.csproj" />
     <ProjectReference Include="..\SchoolsAdmin.Domain\SchoolsAdmin.Domain.csproj" />
+    <ProjectReference Include="..\SchoolsAdmin.Repository\SchoolsAdmin.Repository.csproj" />
   </ItemGroup>
 
 </Project>

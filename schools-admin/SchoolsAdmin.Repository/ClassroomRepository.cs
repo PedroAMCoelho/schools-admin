@@ -20,5 +20,12 @@ namespace SchoolsAdmin.Repository
                 .OrderBy(cr => cr.Name)
                 .ToList();
         }
+
+        public Classroom GetClassroomById(Guid classroomId)
+        {
+            return FindByCondition(classroom => classroom.Id.Equals(classroomId))
+                    .DefaultIfEmpty(new Classroom())
+                    .FirstOrDefault();
+        }
     }
 }
