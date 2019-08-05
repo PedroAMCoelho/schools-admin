@@ -23,7 +23,7 @@ namespace SchoolsAdmin.Repository
 
         public Classroom GetClassroomById(Guid classroomId)
         {
-            return FindByCondition(classroom => classroom.Id.Equals(classroomId))
+            return FindByCondition(cr => cr.Id.Equals(classroomId))
                     .DefaultIfEmpty(new Classroom(null))
                     .FirstOrDefault();
         }
