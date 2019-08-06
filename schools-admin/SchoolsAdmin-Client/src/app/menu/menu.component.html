@@ -1,1 +1,12 @@
-<p>menu works!</p>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" [routerLink]="['/home']" routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}">SchoolsAdmin Home</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a href="#">School Actions</a></li>
+        <li><a href="#">Classroom Actions</a></li>
+      </ul>
+    </div>
+  </nav>
