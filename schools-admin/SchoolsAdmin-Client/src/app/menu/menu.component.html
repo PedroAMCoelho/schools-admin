@@ -5,7 +5,8 @@
         [routerLinkActiveOptions]="{exact: true}">SchoolsAdmin Home</a>
       </div>
       <ul class="nav navbar-nav">
-        <li><a href="#">School Actions</a></li>
+        <li><a [routerLink]="['/school/list']" routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact: true}">School Actions</a></li>
         <li><a href="#">Classroom Actions</a></li>
       </ul>
     </div>

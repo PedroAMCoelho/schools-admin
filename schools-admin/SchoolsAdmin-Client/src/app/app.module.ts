@@ -22,6 +22,7 @@ import { RepositoryService } from './shared/services/repository.service';
     HttpClientModule,
     RouterModule.forRoot([
       { path: 'home', component: HomeComponent },
+      { path: 'school', loadChildren: './school/school.module#SchoolModule' }, /* loadChildren = lazy loading for school module*/
       { path: '404', component : NotFoundComponent},
       { path: '', redirectTo: '/home', pathMatch: 'full' },
       { path: '**', redirectTo: '/404', pathMatch: 'full'}
