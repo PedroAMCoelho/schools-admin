@@ -3,9 +3,7 @@
   "compilerOptions": {
     "outDir": "./out-tsc/app",
     "types": [
-      "jquery",
-      "bootstrap",
-      "jqueryui"
+      "jquery"
     ]
   },
   "files": [

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { RepositoryService } from './../../shared/services/repository.service';
-import { School } from './../../_interfaces/school.model';
+import { RepositoryService } from '../../shared/services/repository.service';
+import { School } from '../../_interfaces/school.model';
 
 @Component({
   selector: 'app-school-list',
@@ -13,10 +13,10 @@ export class SchoolListComponent implements OnInit {
   constructor(private repository: RepositoryService) { }
 
   ngOnInit() {
-    this.getAllOwners();
+    this.getAllSchools();
   }
 
-  public getAllOwners() {
+  public getAllSchools() {
     const apiAddress = 'api/school';
     this.repository.getData(apiAddress)
     .subscribe(res => {

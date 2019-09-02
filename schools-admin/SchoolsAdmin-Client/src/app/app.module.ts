@@ -9,6 +9,8 @@ import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { EnvironmentUrlService } from './shared/services/environment-url.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RepositoryService } from './shared/services/repository.service';
+import { MatDialogModule, MatButtonModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,9 @@ import { RepositoryService } from './shared/services/repository.service';
   ],
   imports: [
     BrowserModule,
+    MatDialogModule,
+    MatButtonModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     RouterModule.forRoot([
       { path: 'home', component: HomeComponent },
@@ -30,8 +35,9 @@ import { RepositoryService } from './shared/services/repository.service';
   ],
   providers: [
     EnvironmentUrlService,
-    RepositoryService
+    RepositoryService,
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
